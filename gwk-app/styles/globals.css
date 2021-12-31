@@ -14,3 +14,10 @@ a {
 * {
   box-sizing: border-box;
 }
+h3 {
+  text-transform: capitalize;
+}
+footer {
+  padding:25px 0;
+  color:#FFF;
+}
