@@ -1,20 +1,37 @@
-import Carousel from "/components/carousel.js"
-export default function ProductCard() {
-
+import ImageCarousel from "./imageCarousel"
+import styles from "./../styles/card.module.scss"
+import Image from "next/image"
+const myLoader = ({ src, width, quality }) => {
+  return `${src}?w=${width}&q=${quality || 75}`
+}
+export default function ProductCard(props) {
+  const product = props.node
+  console.log(product)
+  let imageUrl = product.galleryImages.edges[0].node.sourceUrl
+  function createMarkup(content) {
+    return {__html: content};
+  }
+<div className="card-text text-muted" dangerouslySetInnerHTML={createMarkup(product.description)} />
   return (
     <>
-    <div class="card" style={{"width": "18rem"}}>
-   <Carousel />
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text text-muted">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <hr />
-    <div className="d-flex">
-      <div class="p-2 d-inline">Price: $9, 99</div>
-<button  class="btn btn-primary shadow lift me-1">Add to Cart</button>
+    <div className={styles.productCard} >
+      
+        <Image
+      loader={myLoader}
+          src={`${imageUrl}`}
+           width={408}
+        height={350}
+          className={styles.logo}
+           alt="product image"
+        /> 
+      <div className={styles.productContent}>
+        <h5>{product.name}</h5>
+        <h2 className="text-center">{product.price}</h2>
+      </div>
+      <div className="text-center">
+        <button className={styles.buyButton + " btn btn-secondary"}>Shop now</button>
+      </div>
     </div>
-  </div>
-</div>
     </>
   )
 }

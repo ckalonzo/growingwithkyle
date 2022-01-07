@@ -1,0 +1,37 @@
+.intro {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: #eaf0f7;
+    min-height: 450px;
+    border-radius: 10px;
+    .col-4 {
+        padding:50px;
+    }
+    h1 {
+        color:#263570;
+        margin-top: 150px;
+    }
+    p {
+        margin-top:25px;
+    }
+    .shopNow {
+        background-color: #263570;
+        padding: 25px;
+        border-radius: 35px;
+        padding: 21px 40px 21px 40px;
+        font-weight: bold;
+    }
+    .shopNow:hover {
+        background-color: #FFF;
+        color:#263570;
+    }
+}
+
+.intro .container {
+    background-color: #d2e2f8;
+}
+.leadImage {
+    background-repeat: no-repeat!important;
+    background-position: 100% 35%!important;
+    border-radius:0 25px 25px 0;    
+}

@@ -23,7 +23,6 @@ async function fetchAPI(query, { variables } = {}) {
 
   const json = await res.json()
   if (json.errors) {
-    console.error(json.errors)
     throw new Error('Failed to fetch API')
   }
   return json.data
@@ -256,4 +255,49 @@ export async function getAllCategories (){
   }
   `)
   return data?.posts
+}
+
+export async function getLatestTenProducts (){
+  const data = await fetchAPI(`query firstTenProducts {
+    products(first: 10) {
+      edges {
+        cursor
+        node {
+          id
+          name
+          averageRating
+          ... on SimpleProduct {
+            id
+            name
+            price
+            salePrice
+            regularPrice
+            description
+          }
+          ... on VariableProduct {
+            id
+            name
+            price
+            salePrice
+            regularPrice
+            description
+          }
+          type
+          galleryImages {
+            edges {
+              node {
+                uri
+                sourceUrl(size: LARGE)
+              }
+            }
+            nodes {
+              id
+            }
+          }
+        }
+      }
+    }
+  }
+  `)
+  return data?.products
 }

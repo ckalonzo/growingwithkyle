@@ -6,15 +6,16 @@ const myLoader = ({ src, width, quality }) => {
   return `${src}?w=${width}&q=${quality || 75}`
 }
 export default function Nav() {
-  return (<>
+  return (<><div className={styles.navContainer}>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <Container>
+    
   <Link href="/" classNameName="navbar-brand">
       <Image
       loader={myLoader}
           src='/logo-1.png'
-           width={325}
-        height={100}
+           width={225}
+        height={55}
           className={styles.logo}
            alt="logo"
         /> 
@@ -26,13 +27,13 @@ export default function Nav() {
       <ul className="navbar-nav">
         
         <li className="nav-item">
-          <a className="nav-link" href="#">products</a>
+          <a className="nav-link" href="#">shop</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">categories</a>
+          <a className="nav-link" href="#">about</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">blog</a>
+          <a className="nav-link" href="#">contact</a>
         </li>
       </ul>
     </div>
@@ -44,7 +45,8 @@ export default function Nav() {
                 </ul>
             </div>
       </div>
+   
   </Container>
-</nav>
+</nav> </div>
   </>)
 }

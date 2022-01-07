@@ -1,0 +1,21 @@
+.newsletter{
+    margin-top:50px;
+    margin-bottom:50px;
+    padding-top:50px;
+    padding-bottom:50px;
+    h2 {
+        text-align: center;
+    }
+    .subscribe {
+        background-color: #263570;
+        padding: 25px;
+        border-radius: 35px;
+        padding: 21px 40px 21px 40px;
+        font-weight: bold;
+        color:#FFF;
+    }
+    .subscribe:hover {
+        background-color: #FFF;
+        color:#263570;
+    }
+}
